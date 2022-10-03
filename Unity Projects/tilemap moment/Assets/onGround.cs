@@ -11,13 +11,9 @@ public class onGround : MonoBehaviour
     {
         anim = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
      void OnCollisionEnter2D(Collision2D collision) {
+        Debug.Log("hahahaha found it");
         if(collision.relativeVelocity.y <= 0f){
         Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
 

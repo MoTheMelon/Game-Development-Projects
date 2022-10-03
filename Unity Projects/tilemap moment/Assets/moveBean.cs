@@ -14,9 +14,9 @@ public class moveBean : MonoBehaviour
         Debug.Log("start");
     }
     
-    void OnCollisionEnter(Collision collision){
+    void OnCollisionEnter2D(Collision2D collision){
         canJump = true;
-        Debug.Log("literally is this working");
+                anim.SetBool("isJumping",false);
         if(collision.gameObject.name == "mr jellybean"){
             Debug.Log("the bean has landed.");
         }
@@ -24,7 +24,7 @@ public class moveBean : MonoBehaviour
             Debug.Log("tilemap??");
         }
     }
-    void OnCollisionExit(Collision collision){
+    void OnCollisionExit2D(Collision2D collision){
         canJump = false;
         Debug.Log("oncollisionexit?");
     }
@@ -32,7 +32,7 @@ public class moveBean : MonoBehaviour
     void Update()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-
+        Debug.Log(canJump);
         if(Input.GetKey(KeyCode.A)){
             //left
             rb.AddForce(new Vector2(-speed, 0));
